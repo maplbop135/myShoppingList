@@ -30,12 +30,12 @@ const Recipe = ({ recipe, setCurrentId }) => {
             </div>
             <Typography className={classes.title} variant="h5" gutterBottom>{recipe.title}</Typography>
             <CardContent>
-                <Typography variant="h5" gutterBottom>{recipe.message}</Typography>
+                <Typography variant="body2" color="textSecondary" component="p">{recipe.message}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
                 <Button size="small" color="primary" onClick={() => dispatch(likeRecipe(recipe._id))}>
                     <ThumbUpAltIcon fontSize="small" />
-                    Like{recipe.likeCount}
+                    &nbsp; Like &nbsp; {recipe.likeCount}
                 </Button>
                 <Button size="small" color="primary" onClick={() => dispatch(deleteRecipe(recipe._id))}>
                     <DeleteIcon fontSize="small" />
