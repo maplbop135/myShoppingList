@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import RecipesPage from './components/RecipesPage';
 import Mycalendar from './components/Mycalendar';
 import Refrigerator from './components/Refrigerator';
+import Auth from './components/Auth';
 import { useDispatch } from 'react-redux';
 
 import { getRecipes } from './actions/recipes'
@@ -29,6 +30,7 @@ const App = () => {
                     <Route path='/recipes' element={<RecipesPage currentId={currentId} setCurrentId={setCurrentId} />} />
                     <Route path='/my-calendar' element={<Mycalendar />} />
                     <Route path='/refrigerator' element={<Refrigerator />} />
+                    <Route path='/auth' element={<Auth />} />
                 </Routes>
             </BrowserRouter>
             <Footer />

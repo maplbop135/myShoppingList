@@ -1,4 +1,7 @@
+import { Avatar, Toolbar, Button } from "@material-ui/core";
+
 export default function Navbar() {
+    const user = null;
 
     return (
         <nav className="nav">
@@ -16,6 +19,13 @@ export default function Navbar() {
                 <li>
                     <a href="/refrigerator">Refrigerator</a>
                 </li>
+                {user? (<Toolbar>
+                            <div className="profile">
+                                <Avatar className="purple" alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
+                                <Button>Logout</Button>
+                            </div>
+                        </Toolbar>)
+                : (<li><a href="/auth">Sign in</a></li>)}
             </ul>
         </nav>
     );
