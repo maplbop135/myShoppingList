@@ -176,3 +176,40 @@ body {
     padding-top: 15%;
   }
 }
+
+.sub-menu-wrap {
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  width: 200px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 255, .2);
+  z-index: 3;
+  background: #ffffff;
+}
+
+.sub-menu {
+  background: #ffffff;
+  margin: 0px;
+  padding-left: 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.user-info h3 {
+  font-weight: 600;
+}
+
+.sub-menu-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+}
+
+.sub-menu-link p {
+  width: 100%;
+}

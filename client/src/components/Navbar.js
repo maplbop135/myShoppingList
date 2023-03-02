@@ -1,7 +1,12 @@
-import { Avatar, Toolbar, Button } from "@material-ui/core";
+import { Avatar, Toolbar } from "@material-ui/core";
+
+import ProfileImage from '../images/profile.png';
+import HelpImage from '../images/help.png';
+import SettingImage from '../images/setting.png';
+import LogoutImage from '../images/logout.png';
 
 export default function Navbar() {
-    const user = null;
+    const user = {"result":{"name":"hi", "imageUrl":""}};
 
     return (
         <nav className="nav">
@@ -20,9 +25,34 @@ export default function Navbar() {
                     <a href="/refrigerator">Refrigerator</a>
                 </li>
                 {user? (<Toolbar>
-                            <div className="profile">
-                                <Avatar className="purple" alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
-                                <Button>Logout</Button>
+                            <Avatar className="purple" alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
+                            <div className="sub-menu-wrap">
+                                <div className="sub-menu">
+                                    <div className="user-info">
+                                        <Avatar className="purple" alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
+                                        <h3> &nbsp; {user.result.name}</h3>
+                                    </div>
+                                    <a href="/" className="sub-menu-link">
+                                        <img src={ProfileImage} />
+                                        <p>Edit Profile</p>
+                                        <span>&gt;</span>
+                                    </a>
+                                    <a href="/" className="sub-menu-link">
+                                        <img src={SettingImage} />
+                                        <p>Settings</p>
+                                        <span>&gt;</span>
+                                    </a>
+                                    <a href="/" className="sub-menu-link">
+                                        <img src={HelpImage} />
+                                        <p>Help & Support</p>
+                                        <span>&gt;</span>
+                                    </a>
+                                    <a href="/" className="sub-menu-link">
+                                        <img src={LogoutImage} />
+                                        <p>Logout</p>
+                                        <span>&gt;</span>
+                                    </a>
+                                </div>
                             </div>
                         </Toolbar>)
                 : (<li><a href="/auth">Sign in</a></li>)}
