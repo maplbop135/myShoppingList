@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import RecipesPage from './components/RecipesPage';
 import Mycalendar from './components/Mycalendar';
 import Refrigerator from './components/Refrigerator';
-import Auth from './components/Auth';
+import Auth from './components/Auth/Auth';
 import { useDispatch } from 'react-redux';
 
 import { getRecipes } from './actions/recipes'
