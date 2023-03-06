@@ -10,6 +10,7 @@ import Auth from './components/Auth/Auth';
 import { useDispatch } from 'react-redux';
 
 import { getRecipes } from './actions/recipes'
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 import './styles.css';
 
@@ -22,7 +23,7 @@ const App = () => {
     }, [currentId, dispatch]);
 
     return (
-        <div className="App">    
+        <GoogleOAuthProvider className="App" clientId="1020369379543-uvcjr8iae8264870udn2cpi4vk7vseoc.apps.googleusercontent.com">    
             <Navbar />
             <BrowserRouter>
                 <Routes>
@@ -34,7 +35,7 @@ const App = () => {
                 </Routes>
             </BrowserRouter>
             <Footer />
-        </div>
+        </GoogleOAuthProvider>
     );
 }
 

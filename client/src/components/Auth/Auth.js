@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Avatar, TextField, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import { GoogleLogin, googleLogout, useGoogleLogin } from '@react-oauth/google';
+
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Input from './Input';
 
 import useStyles from './styles';
@@ -22,6 +24,19 @@ export default function Auth(){
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup);
     }
+    
+    const googleSuccess = (res) => {
+        console.log(res);
+    };
+    
+    const googleFailure = () => {
+        console.log("Google Sign in was unsuccessful. Try again later.");
+    };
+    
+    const googleSocialLogin = useGoogleLogin({
+        onSuccess: (codeResponse) => console.log(codeResponse),
+        flow: 'auth-code'
+    })
 
     return (
         <Container component="main" maxWidth="xs">
@@ -30,7 +45,14 @@ export default function Auth(){
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
                 </Avatar>
-                <Typography variant="h5">{isSignup ? 'Sign Up' : 'Sign In'}</Typography>
+                <Typography variant="h5">{isSignup ? '회원 가입' : '로그인'}</Typography>
+                <hr />
+                <GoogleLogin
+                    onSuccess={googleSuccess}
+                    onFailure={googleFailure}
+                    cookiePolicy="single_host_origin"
+                />
+                <hr />
                 <form className={classes.form} onSubmit={handleSubmit}>
                     <Grid container spacing={2}>
                         {isSignup && (
