@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Avatar, TextField, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
-import { GoogleLogin, googleLogout, useGoogleLogin } from '@react-oauth/google';
+import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
+import { GoogleLogin } from '@react-oauth/google';
+import { createOrGetUser } from '../../api/index';
 
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Input from './Input';
@@ -25,18 +26,9 @@ export default function Auth(){
         setIsSignup((prevIsSignup) => !prevIsSignup);
     }
     
-    const googleSuccess = (res) => {
-        console.log(res);
-    };
-    
     const googleFailure = () => {
         console.log("Google Sign in was unsuccessful. Try again later.");
     };
-    
-    const googleSocialLogin = useGoogleLogin({
-        onSuccess: (codeResponse) => console.log(codeResponse),
-        flow: 'auth-code'
-    })
 
     return (
         <Container component="main" maxWidth="xs">
@@ -46,14 +38,8 @@ export default function Auth(){
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography variant="h5">{isSignup ? '회원 가입' : '로그인'}</Typography>
-                <hr />
-                <GoogleLogin
-                    onSuccess={googleSuccess}
-                    onFailure={googleFailure}
-                    cookiePolicy="single_host_origin"
-                />
-                <hr />
                 <form className={classes.form} onSubmit={handleSubmit}>
+                    <h6> 이메일로 로그인 </h6>
                     <Grid container spacing={2}>
                         {isSignup && (
                             <>
@@ -68,10 +54,18 @@ export default function Auth(){
                     <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
                         { isSignup ? 'Sign Up' : 'Sign in' }
                     </Button>
+                    <h6> 소셜 계정으로 로그인 </h6>
+                    <div className={classes.googleLogin}>
+                        <GoogleLogin
+                            onSuccess={(response) => createOrGetUser(response)}
+                            onFailure={googleFailure}
+                            cookiePolicy="single_host_origin"
+                        />
+                    </div>
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Button onClick={switchMode}>
-                                { isSignup ? 'Already have an account? Sign In' : "Don't have an account? Sign Up" }
+                                { isSignup ? `계정이 이미 있으신가요? 로그인` : `계정이 없으신가요? 회원가입` }
                             </Button>
                         </Grid>
                     </Grid>
