@@ -23,7 +23,7 @@ const App = () => {
     }, [currentId, dispatch]);
 
     return (
-        <GoogleOAuthProvider className="App" clientId="1020369379543-uvcjr8iae8264870udn2cpi4vk7vseoc.apps.googleusercontent.com">    
+        <GoogleOAuthProvider className="App" clientId={process.env.GCP_CLIENT_ID}>    
             <Navbar />
             <BrowserRouter>
                 <Routes>
