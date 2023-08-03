@@ -2,9 +2,11 @@ export default function Home() {
     return (
         <>
             <div className="container flex">
-                <div className="recommend-box">
-                    <a href="/">Today's recommendation</a>
-                </div>
+                <a href="/recipes" className="recommend-box">
+                    <div className="recommend-text">
+                        오늘의 추천 메뉴는?
+                    </div>
+                </a>
                 <div className="vertical">
                     <div className="refrigerator">
                         <a href="/refrigerator">Refrigerator</a>

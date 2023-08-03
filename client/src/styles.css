@@ -107,7 +107,24 @@ body {
 .recommend-box {
   width: 65%;
   min-height: 88vh;
-  background-color: rgb(7, 172, 29);
+  background-image: url("images/foods.jpg");
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.recommend-text {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: 'Gothic', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.534);
+  padding: 10px;
+  text-align: center;
 }
 
 .vertical {
