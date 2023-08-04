@@ -1,5 +1,6 @@
 import {FETCH_ALL, CREATE, UPDATE, DELETE, LIKE} from '../constants/actionTypes';
 import * as api from '../api';
+import { ThunkAction } from 'redux-thunk';
 
 // Action Creators
 export const getRecipes = () => async (dispatch) => {
