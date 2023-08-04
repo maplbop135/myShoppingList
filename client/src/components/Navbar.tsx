@@ -5,12 +5,19 @@ import HelpImage from '../images/help.png';
 import SettingImage from '../images/setting.png';
 import LogoutImage from '../images/logout.png';
 
+type User = {
+    result: {
+        name: string,
+        imageUrl: string
+    }
+};
+
 export default function Navbar() {
-    const user = null;
+    const user:User = { result: { name: "", imageUrl: "" }};
     const subMenu = document.getElementById("subMenu");
 
     function toggleMenu(){
-        subMenu.classList.toggle("open-menu");
+        subMenu?.classList.toggle("open-menu");
     }
 
     return (
