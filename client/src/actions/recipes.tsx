@@ -1,9 +1,21 @@
 import {FETCH_ALL, CREATE, UPDATE, DELETE, LIKE} from '../constants/actionTypes';
 import * as api from '../api';
-import { ThunkAction } from 'redux-thunk';
+import { Dispatch, AnyAction } from 'redux';
+import { ThunkAction, ThunkDispatch } from 'redux-thunk';
+import { RootState } from '../RootState';
+
+export interface Recipe {
+    title: string;
+    message: string;
+    creator: string;
+    tags: string[];
+    selectedFile: string;
+    likeCount: number;
+    createdAt: Date;
+}
 
 // Action Creators
-export const getRecipes = () => async (dispatch) => {
+export const getRecipes = () => async (dispatch: ThunkDispatch<void, void, AnyAction>) => {
     try {
         const { data } = await api.fetchRecipes();
 
@@ -11,9 +23,9 @@ export const getRecipes = () => async (dispatch) => {
     } catch (error) {
         console.log(error);
     }
-}
+};
 
-export const createRecipe = (recipe) => async (dispatch) => {
+export const createRecipe = (recipe: Recipe) => async (dispatch: Dispatch<AnyAction>) => {
     try {
         const { data } = await api.createRecipe(recipe);
 
@@ -23,7 +35,7 @@ export const createRecipe = (recipe) => async (dispatch) => {
     }
 }
 
-export const updateRecipe = (id, recipe) => async (dispatch) => {
+export const updateRecipe = (id: string, recipe: Recipe) => async (dispatch: Dispatch<AnyAction>) => {
     try {
         const { data } = await api.updateRecipe(id, recipe);
 
@@ -33,7 +45,7 @@ export const updateRecipe = (id, recipe) => async (dispatch) => {
     }
 }
 
-export const deleteRecipe = (id) => async (dispatch) => {
+export const deleteRecipe = (id: string) => async (dispatch: Dispatch<AnyAction>) => {
     try {
         await api.deleteRecipe(id);
 
@@ -43,7 +55,7 @@ export const deleteRecipe = (id) => async (dispatch) => {
     }
 }
 
-export const likeRecipe = (id) => async (dispatch) => {
+export const likeRecipe = (id: string) => async (dispatch: Dispatch<AnyAction>) => {
     try {
         const { data } = await api.likeRecipe(id);
 
