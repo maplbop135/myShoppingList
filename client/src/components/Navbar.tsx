@@ -36,7 +36,7 @@ export default function Navbar() {
                 <li>
                     <a href="/refrigerator">Refrigerator</a>
                 </li>
-                {user? (<Toolbar>
+                {user.result.name!=""? (<Toolbar>
                             <Avatar className="purple" onClick={toggleMenu} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
                             <div className="sub-menu-wrap" id="subMenu">
                                 <div className="sub-menu">
