@@ -1,6 +1,7 @@
+import { Action } from "redux";
 import { SIGNIN, SIGNOUT } from "../constants/actionTypes";
 
-const AuthReducers = (user = null, action) => {
+const AuthReducers = (user = null, action: Action) => {
     switch (action.type) {
         case SIGNIN:
             return user;

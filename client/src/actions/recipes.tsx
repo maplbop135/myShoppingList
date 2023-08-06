@@ -5,6 +5,7 @@ import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { RootState } from '../RootState';
 
 export interface Recipe {
+    _id: string;
     title: string;
     message: string;
     creator: string;
@@ -45,7 +46,7 @@ export const updateRecipe = (id: string, recipe: Recipe) => async (dispatch: Dis
     }
 }
 
-export const deleteRecipe = (id: string) => async (dispatch: Dispatch<AnyAction>) => {
+export const deleteRecipe = (id: string) => async (dispatch: ThunkDispatch<void, void, AnyAction>) => {
     try {
         await api.deleteRecipe(id);
 
@@ -55,7 +56,7 @@ export const deleteRecipe = (id: string) => async (dispatch: Dispatch<AnyAction>
     }
 }
 
-export const likeRecipe = (id: string) => async (dispatch: Dispatch<AnyAction>) => {
+export const likeRecipe = (id: string) => async (dispatch: ThunkDispatch<void, void, AnyAction>) => {
     try {
         const { data } = await api.likeRecipe(id);
 

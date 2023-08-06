@@ -2,7 +2,12 @@ import { Container, Grow, Grid } from '@material-ui/core';
 import Recipes from './Recipes/Recipes';
 import Form from './Form/Form';
 
-export default function RecipesPage({ currentId, setCurrentId }){
+interface Props {
+    currentId: string | null;
+    setCurrentId: (id: string | null) => void;
+}
+
+export default function RecipesPage({ currentId, setCurrentId }: Props){
     return (
         <div className='recipe-container'>
             <Container maxWidth="lg">
@@ -13,7 +18,8 @@ export default function RecipesPage({ currentId, setCurrentId }){
                                 <Recipes setCurrentId={setCurrentId} />
                             </Grid>
                             <Grid item xs={12} sm={4}>
-                                <Form currentId={currentId} setCurrentId={setCurrentId} />
+                                { currentId === null ? <Form currentId='' setCurrentId={setCurrentId} />
+                                                     : <Form currentId={currentId} setCurrentId={setCurrentId} /> }
                             </Grid>
                         </Grid>
                     </Container>

@@ -7,11 +7,18 @@ import moment from 'moment';
 import useStyles from './styles';
 import { useDispatch } from 'react-redux';
 
-import { deleteRecipe, likeRecipe } from '../../../actions/recipes';
+import { Recipe as Recipe_type, deleteRecipe, likeRecipe } from '../../../actions/recipes';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
-const Recipe = ({ recipe, setCurrentId }) => {
+interface Props {
+    recipe: Recipe_type;
+    setCurrentId: (id: string) => void;
+}
+
+const Recipe = ({ recipe, setCurrentId }: Props) => {
     const classes = useStyles();
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<ThunkDispatch<void, void, AnyAction>>();
 
     return (
         <Card className={classes.card}>

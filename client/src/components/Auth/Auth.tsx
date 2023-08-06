@@ -8,7 +8,7 @@ import Input from './Input';
 
 import useStyles from './styles';
 
-export default function Auth(){
+export default function Auth() {
     const classes = useStyles();
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
@@ -43,8 +43,8 @@ export default function Auth(){
                     <Grid container spacing={2}>
                         {isSignup && (
                             <>
-                                <Input name="firstName" label="First Name" handleChange={handleChange} autoFocus half />
-                                <Input name="lastName" label="Last Name" handleChange={handleChange} half />
+                                <Input name="firstName" label="First Name" handleChange={handleChange} type="text" autoFocus half />
+                                <Input name="lastName" label="Last Name" handleChange={handleChange} type="text" half />
                             </>
                         )}
                     <Input name="email" label="Email Address" handleChange={handleChange} type="email" />
@@ -58,8 +58,7 @@ export default function Auth(){
                     <div className={classes.googleLogin}>
                         <GoogleLogin
                             onSuccess={(response) => createOrGetUser(response)}
-                            onFailure={googleFailure}
-                            cookiePolicy="single_host_origin"
+                            onError={googleFailure}
                         />
                     </div>
                     <Grid container justify="flex-end">
@@ -73,6 +72,4 @@ export default function Auth(){
             </Paper>
         </Container>
     );
-  }
-  
-  
+}
