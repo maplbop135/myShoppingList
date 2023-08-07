@@ -4,6 +4,7 @@ import ProfileImage from '../images/profile.png';
 import HelpImage from '../images/help.png';
 import SettingImage from '../images/setting.png';
 import LogoutImage from '../images/logout.png';
+import { NavLink } from "react-router-dom";
 
 type User = {
     result: {
@@ -25,18 +26,18 @@ export default function Navbar() {
             <a href='/' className="site-title">My Shopping List</a>
             <ul>
                 <li>
-                    <a href="/">Home</a>
+                    <NavLink to="/">Home</NavLink>
                 </li>
                 <li>
-                    <a href="/recipes">Recipes</a>
+                    <NavLink to="/recipes">Recipes</NavLink>
                 </li>
                 <li>
-                    <a href="/my-calendar">My Calendar</a>
+                    <NavLink to="/my-calendar">My Calendar</NavLink>
                 </li>
                 <li>
-                    <a href="/refrigerator">Refrigerator</a>
+                    <NavLink to="/refrigerator">Refrigerator</NavLink>
                 </li>
-                {user.result.name!=""? (<Toolbar>
+                {user.result.name!==""? (<Toolbar>
                             <Avatar className="purple" onClick={toggleMenu} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
                             <div className="sub-menu-wrap" id="subMenu">
                                 <div className="sub-menu">

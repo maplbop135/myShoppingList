@@ -96,6 +96,10 @@ body {
   padding-bottom: 10px;
 }
 
+.nav a.active {
+  color: rgb(233, 132, 16);
+}
+
 .nav li.active {
   background-color: #555;
 }
@@ -105,7 +109,7 @@ body {
 }
 
 .recommend-box {
-  width: 65%;
+  width: 100%;
   min-height: 88vh;
   background-image: url("images/foods.jpg");
   cursor: pointer;
@@ -128,21 +132,75 @@ body {
 }
 
 .vertical {
-  width: 35%;
+  width: 40%;
+  background-image: url("images/foods.jpg");
 }
 
 .refrigerator {
   position: relative;
+  display: block;
+  border: 3px solid white;
+  border-bottom: 1.5px solid white;
   height: 50%;
-  background-color: rgb(197, 252, 0);
+  background-color: rgb(116, 116, 116);
   min-height: 40vh;
+  background-image: url("images/refrigerator.jpg");
+  background-position: center;
+  text-decoration: none;
+}
+
+.refrigerator::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.refrigerator-text {
+  color: white;
+  font-family: 'Gothic', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  top: 40%;
 }
 
 .mycalendar {
   position: relative;
+  display: block;
+  border: 3px solid white;
+  border-top: 1.5px solid white;
   height: 50%;
-  background-color: rgb(253, 75, 4);
+  background-color: rgb(252, 132, 85);
   min-height: 40vh;
+  background-image: url("images/calendar.jpg");
+  background-position: center;
+  text-decoration: none;
+}
+
+.mycalendar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.mycalendar-text {
+  color: white;
+  font-family: 'Gothic', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  top: 40%;
 }
 
 .container {

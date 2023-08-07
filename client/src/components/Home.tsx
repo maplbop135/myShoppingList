@@ -8,12 +8,16 @@ export default function Home() {
                     </div>
                 </a>
                 <div className="vertical">
-                    <div className="refrigerator">
-                        <a href="/refrigerator">Refrigerator</a>
-                    </div>
-                    <div className="mycalendar">
-                        <a href="/my-calendar">My Calendar</a>
-                    </div>
+                    <a href="/refrigerator" className="refrigerator">
+                        <div className="refrigerator-text">
+                            냉장고 열기
+                        </div>
+                    </a>
+                    <a href="/my-calendar" className="mycalendar">
+                        <div className="mycalendar-text">
+                            식단 캘린더
+                        </div>
+                    </a>
                 </div>
             </div>
             <div className="home-recipes">

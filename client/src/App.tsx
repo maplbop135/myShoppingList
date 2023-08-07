@@ -28,8 +28,8 @@ const App:React.FC = () => {
     return (
         <div className="App">
             <GoogleOAuthProvider clientId={clientId?clientId:""}>    
-                <Navbar />
                 <BrowserRouter>
+                    <Navbar />
                     <Routes>
                         <Route path='/' element={<Home />} />
                         <Route path='/recipes' element={<RecipesPage currentId={currentId} setCurrentId={setCurrentId} />} />
