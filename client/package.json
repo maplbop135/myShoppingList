@@ -19,6 +19,7 @@
     "fs": "^0.0.1-security",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.4",
+    "rc-footer": "^0.6.8",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-file-base64": "^1.0.3",

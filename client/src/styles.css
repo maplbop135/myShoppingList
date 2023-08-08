@@ -238,11 +238,17 @@ body {
   width: 100%;
 }
 
-.footer {
-  margin-top: 10vh;
-  background-color: black;
-  min-height: 40vh;
+.main-footer {
   color: white;
+  background-color: black;
+  padding-top: 3em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.space {
+  margin: 5%;
 }
 
 @media (max-width: 599px) {
