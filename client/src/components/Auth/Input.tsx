@@ -4,7 +4,7 @@ import { TextField, Grid, InputAdornment, IconButton } from '@material-ui/core';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
-export interface Input {
+export interface AuthInput {
     name: string;
     half?: boolean;
     handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -14,7 +14,7 @@ export interface Input {
     handleShowPassword?: () => void;
 }
 
-const Input = ({ name, half, handleChange, label, autoFocus, type, handleShowPassword }: Input) => {
+const Input = ({ name, half, handleChange, label, autoFocus, type, handleShowPassword }: AuthInput) => {
     return (
         <Grid item xs={12} sm={half ? 6 : 12}>
             <TextField 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Grid, CircularProgress } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 
@@ -20,7 +19,7 @@ const Recipes = ({ setCurrentId }: Props) => {
         !recipes.length ? <CircularProgress /> : (
             <Grid className={classes.mainContainer} container alignItems='stretch' spacing={3}> 
                 {recipes.map((recipe: Recipe_type) => (
-                    <Grid key={recipe._id} item xs={12} sm={6}>
+                    <Grid key={recipe._id} item xs={12} sm={3}>
                         <Recipe recipe={recipe} setCurrentId={setCurrentId} />
                     </Grid>
                 ))}

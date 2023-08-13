@@ -3,8 +3,8 @@ import jwt_decode from 'jwt-decode';
 import { Recipe } from '../actions/recipes';
 import { CredentialResponse } from '@react-oauth/google';
 
-const recipeUrl = `http://localhost:5000/recipes`;
-const authUrl = `http://localhost:5000/auth`;
+const recipeUrl = `http://localhost:3001/recipes`;
+const authUrl = `http://localhost:3001/auth`;
 
 export const fetchRecipes = () => axios.get(recipeUrl);
 export const createRecipe = (newRecipe: Recipe) => axios.post(recipeUrl, newRecipe);

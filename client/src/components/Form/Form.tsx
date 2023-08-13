@@ -7,7 +7,7 @@ import useStyles from './styles';
 import { Recipe, createRecipe, updateRecipe } from '../../actions/recipes'
 import { RootState } from '../../RootState';
 import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction, CombinedState } from 'redux';
+import { AnyAction } from 'redux';
 
 interface Props {
     currentId: string;

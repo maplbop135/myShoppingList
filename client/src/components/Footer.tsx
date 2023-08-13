@@ -1,11 +1,11 @@
-import RC_Footer from "rc-footer";
+import RCFooter from "rc-footer";
 import 'rc-footer/assets/index.css';
 
 export default function Footer() {
     return (
         <div>
             <div className="space" />
-            <RC_Footer
+            <RCFooter
                 columns={[
                 {
                     title: '개발 스택',
@@ -40,16 +40,16 @@ export default function Footer() {
                     title: '.',
                     items: [
                         {
+                            title: 'Terraform',
+                            url: 'https://www.terraform.io',
+                            openExternal: true,
+                            description: 'IaC'
+                        },
+                        {
                             title: 'Docker',
                             url: 'https://www.docker.com',
                             openExternal: true,
                             description: 'Container engine'
-                        },
-                        {
-                            title: 'Kubernetes',
-                            url: 'https://kubernetes.io',
-                            openExternal: true,
-                            description: 'Container orchestration'
                         },
                         {
                             title: 'Helm',
@@ -58,10 +58,10 @@ export default function Footer() {
                             description: 'K8s Package manager',
                         },
                         {
-                            title: 'Terraform',
-                            url: 'https://www.terraform.io',
+                            title: 'Kubernetes',
+                            url: 'https://kubernetes.io',
                             openExternal: true,
-                            description: 'IaC'
+                            description: 'Container orchestration'
                         },
                     ],
                 },

@@ -32,7 +32,7 @@ const App:React.FC = () => {
                     <Navbar />
                     <Routes>
                         <Route path='/' element={<Home />} />
-                        <Route path='/recipes' element={<RecipesPage currentId={currentId} setCurrentId={setCurrentId} />} />
+                        <Route path='/recipes' element={<RecipesPage setCurrentId={setCurrentId} />} />
                         <Route path='/my-calendar' element={<Mycalendar />} />
                         <Route path='/refrigerator' element={<Refrigerator />} />
                         <Route path='/auth' element={<Auth />} />

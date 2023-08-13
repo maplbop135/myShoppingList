@@ -1,8 +1,7 @@
 import {FETCH_ALL, CREATE, UPDATE, DELETE, LIKE} from '../constants/actionTypes';
 import * as api from '../api';
 import { Dispatch, AnyAction } from 'redux';
-import { ThunkAction, ThunkDispatch } from 'redux-thunk';
-import { RootState } from '../RootState';
+import { ThunkDispatch } from 'redux-thunk';
 
 export interface Recipe {
     _id: string;
