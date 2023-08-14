@@ -1,11 +1,11 @@
-import PostMessage from '../models/postMessage.js';
+import RecipeModel from '../models/RecipeModel.js';
 import mongoose from 'mongoose';
 
 export const getRecipes = async (req, res) => {
     try {
-        const postMessages = await PostMessage.find();
+        const recipes = await RecipeModel.find();
 
-        res.status(200).json(postMessages);
+        res.status(200).json(recipes);
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
@@ -14,7 +14,7 @@ export const getRecipes = async (req, res) => {
 export const createRecipe = async (req, res) => {
     const recipe = req.body;
 
-    const newRecipe = new PostMessage(recipe);
+    const newRecipe = new RecipeModel(recipe);
 
     try {
         await newRecipe.save();
@@ -31,7 +31,7 @@ export const updateRecipe = async (req, res) => {
 
     if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No post with that id');
 
-    const updatedRecipe = await PostMessage.findByIdAndUpdate(_id, { ...recipe, _id }, { new: true });
+    const updatedRecipe = await RecipeModel.findByIdAndUpdate(_id, { ...recipe, _id }, { new: true });
 
     res.json(updatedRecipe);
 }
@@ -41,7 +41,7 @@ export const deleteRecipe = async (req, res) => {
 
     if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No post with that id');
 
-    await PostMessage.findByIdAndRemove(id);
+    await RecipeModel.findByIdAndRemove(id);
 
     res.json({ message: 'Recipe deleted successfully' });
 }
@@ -51,8 +51,8 @@ export const likeRecipe = async (req, res) => {
 
     if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No post with that id');
 
-    const recipe = await PostMessage.findById(id);
-    const updateRecipe = await PostMessage.findByIdAndUpdate(id, { likeCount: recipe.likeCount + 1 }, {new: true});
+    const recipe = await RecipeModel.findById(id);
+    const updateRecipe = await RecipeModel.findByIdAndUpdate(id, { likeCount: recipe.likeCount + 1 }, {new: true});
 
     res.json(updateRecipe);
 }
