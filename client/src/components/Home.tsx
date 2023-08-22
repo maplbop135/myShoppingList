@@ -1,7 +1,7 @@
 export default function Home() {
     return (
         <>
-            <div className="container flex">
+            <div className="containerc flex">
                 <a href="/recipes" className="recommend-box">
                     <div className="recommend-text">
                         오늘의 추천 메뉴는?

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   box-sizing: border-box;
 }
@@ -203,7 +207,7 @@ body {
   top: 40%;
 }
 
-.container {
+.containerc {
   min-height: 100vh;
 }
 
