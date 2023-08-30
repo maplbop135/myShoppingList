@@ -15,13 +15,10 @@ const Recipes = ({ setCurrentId }: Props) => {
     const recipes = useSelector((state: { recipes: Recipe_type[] }) => state.recipes);
     const classes = useStyles();
     const showItems = (recipes: Recipe_type[]) => {
-        var items = [];
+        var items: Recipe_type[] = [];
         for (var i = 0; i < records; i++) {
             items.push(
-            <div className="post" key={recipes[i]._id}>
-                <h3>{`${recipes[i].RCP_NM} - ${recipes[i]._id}`}</h3>
-                <p>{recipes[i].RCP_PARTS_DTLS}</p>
-            </div>
+            recipes[i]
             );
         }
         return items;
@@ -50,15 +47,14 @@ const Recipes = ({ setCurrentId }: Props) => {
                 loader={<h4 className="loader">Loading...</h4>}
                 useWindow={false}
                 >
-                {showItems(recipes)}
+                <Grid className={classes.mainContainer} container alignItems='stretch' spacing={3}> 
+                    {showItems(recipes).map((recipe: Recipe_type) => (
+                        <Grid key={recipe._id} item xs={12} sm={3}>
+                            <Recipe recipe={recipe} setCurrentId={setCurrentId} />
+                        </Grid>
+                    ))}
+                </Grid>
             </InfiniteScroll>
-            // <Grid className={classes.mainContainer} container alignItems='stretch' spacing={3}> 
-            //     {recipes.map((recipe: Recipe_type) => (
-            //         <Grid key={recipe._id} item xs={12} sm={3}>
-            //             <Recipe recipe={recipe} setCurrentId={setCurrentId} />
-            //         </Grid>
-            //     ))}
-            // </Grid>
         )
     );
 }
