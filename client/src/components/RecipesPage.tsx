@@ -1,4 +1,4 @@
-import { Container, Grow, Grid } from '@material-ui/core';
+import { Grow, Grid } from '@material-ui/core';
 import Recipes from './Recipes/Recipes';
 
 interface Props {
@@ -8,17 +8,13 @@ interface Props {
 export default function RecipesPage({ setCurrentId }: Props){
     return (
         <div className='recipe-container'>
-            <Container>
-                <Grow in>
-                    <Container>
-                        <Grid className="device" container alignItems="stretch" spacing={3}>
-                            <Grid item xs={12} sm={12}>
-                                <Recipes setCurrentId={setCurrentId} />
-                            </Grid>
-                        </Grid>
-                    </Container>
-                </Grow>
-            </Container>
+            <Grow in>
+                <Grid className="device" container alignItems="stretch" spacing={3}>
+                    <Grid item xs={12} sm={12}>
+                        <Recipes setCurrentId={setCurrentId} />
+                    </Grid>
+                </Grid>
+            </Grow>
         </div>
     );
 }

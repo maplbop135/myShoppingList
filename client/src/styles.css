@@ -214,6 +214,8 @@ body {
 .recipe-container {
   min-height: 100vh;
   padding-top: 10%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 @media (max-width: 799px) {
